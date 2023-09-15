@@ -1,0 +1,124 @@
+----------------------------------------------CREATE DETAILED TABLE ------------------------------------------------------------
+DROP TABLE IF EXISTS detailed_table;
+CREATE TABLE detailed_table (
+
+customer_id bigint,
+first_name varchar (40),
+last_name varchar (40),
+email varchar (90),
+rental_id integer,
+rental_date timestamp,
+return_date timestamp
+
+);
+
+SELECT * FROM detailed_table;
+ 
+ 
+
+----------------------------------------------CREATE EMPTY SUMMARY TABLE-----------------------------------------------
+
+DROP TABLE IF EXISTS summary_table;
+CREATE TABLE summary_table (
+
+customer_id bigint,
+rental_date timestamp,
+number_of_rentals varchar
+
+);
+
+SELECT * FROM summary_table;
+
+
+------------------------------------- INSERTING DATA INTO THE DETAILED TABLE -------------------------------
+
+-- Extract raw data from Detailed Section of the report from the DVD rental database into detailed_table
+
+INSERT INTO detailed_table (
+customer_id,
+first_name,
+last_name,
+email,
+rental_id,
+rental_date
+)
+
+SELECT
+     c.customer_id, c.first_name, c.last_name, c.email,
+     r.rental_id, r.rental_date
+
+FROM rental AS r
+INNER JOIN customer AS c ON c.customer_id = r.customer_id;
+
+
+/* This will extract the raw data from the customer table and rental table and insert it into the detailed_table. */
+
+/* Verify the data’s accuracy by juxtaposing detailed_table to the raw data extracted from the rental table and customer table. */
+
+/* Verify all the variables from the extracted raw data are present in the output and in the correct order. To do this, perform a SELECT * FROM query on the detailed_table to acknowledge that the datatypes in the fields are correct. */
+
+/* Verify that the data in the detailed_table is the correct match to the category of data in rental table and customer table. To do this, perform a SELECT * FROM query on the detailed_table to acknowledge that the datatypes in the fields are correct. */
+
+SELECT * FROM detailed_table;
+
+
+---------------------------------------- CREATING THE FUNCTION----------------------------------------------------
+-Updating the summary table
+
+
+CREATE OR REPLACE FUNCTION update_summary_table()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+	DELETE FROM summary_table;
+	INSERT INTO summary_table;
+	SELECT
+		Customer_id,
+		Rental_date,
+		COUNT (rental_date) AS number_of_rentals
+	FROM	 detailed_table
+	GROUP BY customer_id, rental_date
+	ORDER BY COUNT (customer_id)DESC
+);
+RETURN NEW;
+END;
+$$
+
+
+----------------------------------------- CREATING THE TRIGGER---------------------------------------------------------
+
+CREATE TRIGGER refresh_tables
+	AFTER INSERT ON detailed_table
+	FOR EACH STATEMENT
+	EXECUTE PROCEDURE update_summary_table();
+
+INSERT INTO detailed_table (customer_id, rental_date) VALUES (991, ‘2005-05-24 22:54:33’);
+
+SELECT * FROM summary_table
+
+
+
+---------------------------------------- CREATING THE PROCEDURE ---------------------------------------------------------
+CREATE OR REPLACE PROCEDURE refresh_tables()
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+	DELETE FROM detailed_table;
+	INSERT INTO detailed_table(
+		Customer_id,
+		First_name,
+		Last_name,
+		Email,
+		Rental_id,
+		Rental_date
+		)
+SELECT
+	c.customer_id, c.first_name, c.last_name, c.email, 
+	r.rental_id, r.rental_date
+FROM rental AS r
+INNER JOIN customer AS c ON c.customer_id = r.customer.id;
+END;
+$$;
