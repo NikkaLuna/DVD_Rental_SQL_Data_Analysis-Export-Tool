@@ -17,6 +17,7 @@ The project's business questions rely on data aggregation, and the summary data 
 For instance, if working in a computer factory and the business question revolves around the number of computers manufactured in the past six months, the detailed portion of the report might include data on each individual computer produced. Meanwhile, the summary section will offer a high-level summary, featuring the total number of computers produced in each factory.
 
 OBJECTIVE:
+
 The primary goal of this project is to provide data analysts with a versatile tool that streamlines the process of data extraction, import, and analysis. By automating the creation of summary data from detailed datasets, the tool empowers analysts to focus on deriving valuable insights from the data.
 
 USAGE:
