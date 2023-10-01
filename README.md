@@ -8,10 +8,8 @@ KEY FEATURES:
 
 Seamlessly extracts and analyzes data within a single database, simplifying the technical challenges associated with managing multiple databases.
 Defines a "report" as a comprehensive collection of data aimed at answering real-world business questions. Each report is divided into two sections:
-  
-      DETAILED SECTION: Contains granular data that provides the necessary information to address the business question.
-  
-      SUMMARY SECTION: Presents relevant aggregated data that directly answers the business question. This section simplifies decision-making by providing a concise overview of key insights.
+DETAILED SECTION: Contains granular data that provides the necessary information to address the business question.
+SUMMARY SECTION: Presents relevant aggregated data that directly answers the business question. This section simplifies decision-making by providing a concise overview of key insights.
 
 
 BUSINESS QUESTIONS:
