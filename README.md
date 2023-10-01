@@ -17,7 +17,6 @@ Defines a "report" as a comprehensive collection of data aimed at answering real
 BUSINESS QUESTIONS:
 
 The project's business questions rely on data aggregation, and the summary data is automatically generated from the detailed data.
-For instance, if working in a computer factory and the business question revolves around the number of computers manufactured in the past six months, the detailed portion of the report might include data on each individual computer produced. Meanwhile, the summary section will offer a high-level summary, featuring the total number of computers produced in each factory.
 
 OBJECTIVE:
 
@@ -28,8 +27,6 @@ USAGE:
 Clone this repository to your local machine.
 Implement and customize the data export and analysis tool to meet the specific needs of data analysis projects.
 Leverage the tool to efficiently generate both detailed and summary reports, supporting informed decision-making.
-
-
 
 
 
