@@ -1,8 +1,11 @@
+
 # DVD-Rental-SQL-Data-Analysis-Export-Tool
 
 **DESCRIPTION:**
 
-As a data analyst who frequently conducts data extractions from a larger database, I created this project to emulate a common process where extracted data is harnessed for in-depth analysis. Each data extraction serves various organizational needs, ranging from the creation of executive summaries to the provision of comprehensive, detailed datasets. This project aims to replicate and streamline this process, enabling the development of a repeatable system for data export, import, and analysis. It caters to the diverse needs of stakeholders.
+As a data analyst who frequently conducts data extractions from a larger database, I created this project to emulate a common process where extracted data is harnessed for in-depth analysis. 
+
+Each data extraction serves various organizational needs, ranging from the creation of executive summaries to the provision of comprehensive, detailed datasets. This project aims to replicate and streamline this process, enabling the development of a repeatable system for data export, import, and analysis. It caters to the diverse needs of stakeholders.
 
 
 <div style="text-align: center;">
