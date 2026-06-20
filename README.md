@@ -70,10 +70,6 @@ How to Run
 
 1.  **Create Tables:**
 
-    sql
-
-    Copy code
-
     `DROP TABLE IF EXISTS detailed_table;
     CREATE TABLE detailed_table (...);
 
@@ -82,19 +78,11 @@ How to Run
 
 2.  **Insert Data into Detailed Table:**
 
-    sql
-
-    Copy code
-
     `INSERT INTO detailed_table (...)
     SELECT ... FROM rental
     INNER JOIN customer ON c.customer_id = r.customer_id;`
 
 3.  **Create and Execute Trigger:**
-
-    sql
-
-    Copy code
 
     `CREATE TRIGGER refresh_tables
     AFTER INSERT ON detailed_table
@@ -102,10 +90,6 @@ How to Run
     EXECUTE PROCEDURE update_summary_table();`
 
 4.  **Run the Stored Procedure Monthly:**
-
-    sql
-
-    Copy code
 
     `CALL refresh_tables();`
 
